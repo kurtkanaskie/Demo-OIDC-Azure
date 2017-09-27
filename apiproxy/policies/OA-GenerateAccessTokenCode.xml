@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 async="false" continueOnError="false" enabled="true" name="OA-GenerateAccessTokenCode">
+    <DisplayName>OA-GenerateAccessTokenCode</DisplayName>
+    <Properties/>
+    <Attributes>
+        <Attribute name="id_token" ref="app_id_token"/>
+    </Attributes>
+    <Operation>GenerateAccessTokenImplicitGrant</Operation>
+    <ClientId>app_client_id</ClientId>
+    <ResponseType>app_response_type</ResponseType>
+    <GenerateResponse enabled="true"/>
+    <Tokens/>
+</OAuthV2>

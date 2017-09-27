@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="4" name="oidc-v1">
+    <Basepaths>/azure-b2c</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1504722795171</CreatedAt>
+    <CreatedBy>kkanaskie@apigee.com</CreatedBy>
+    <Description>From Rev 2, using OAuth policies</Description>
+    <DisplayName>oidc-v1</DisplayName>
+    <LastModifiedAt>1504723848723</LastModifiedAt>
+    <LastModifiedBy>kkanaskie@apigee.com</LastModifiedBy>
+    <Policies>
+        <Policy>AM-AuthSession</Policy>
+        <Policy>AM-Debug</Policy>
+        <Policy>AM-OpenIDConfiguration</Policy>
+        <Policy>AM-RedirectAppCallback</Policy>
+        <Policy>AM-RedirectAppCallbackError</Policy>
+        <Policy>AM-RedirectLoginApplicationCode</Policy>
+        <Policy>AM-RedirectLoginApplicationImplicit</Policy>
+        <Policy>AM-SetAppCallbackCode</Policy>
+        <Policy>AM-SetAppCallbackImplicit</Policy>
+        <Policy>AM-SetExternalFlagForOAuth</Policy>
+        <Policy>EV-AuthSession</Policy>
+        <Policy>EV-AuthorizeParams</Policy>
+        <Policy>EV-AzureCallbackParamsCode</Policy>
+        <Policy>EV-AzureCallbackParamsImplicit</Policy>
+        <Policy>KV-AzureParams</Policy>
+        <Policy>LC-AzureSession</Policy>
+        <Policy>OA-GenerateAccessTokenCode</Policy>
+        <Policy>OA-GenerateAccessTokenImplicit</Policy>
+        <Policy>OA-GenerateAuthCode</Policy>
+        <Policy>PC-AzureSession</Policy>
+        <Policy>SC-AzureConfiguration</Policy>
+        <Policy>SC-AzureRefreshToken</Policy>
+        <Policy>SC-AzureToken</Policy>
+        <Policy>VA-AzureVariable</Policy>
+        <Policy>VA-FormParam</Policy>
+        <Policy>VA-QueryParam</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+    <validate>false</validate>
+</APIProxy>

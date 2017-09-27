@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Debug">
+    <DisplayName>AM-Debug</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>debugRequest</Name>
+        <Value/>
+        <Ref>request.content</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>debugResponse</Name>
+        <Value/>
+        <Ref>response.content</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>debugServiceCalloutRequest</Name>
+        <Value/>
+        <Ref>ServiceCallout.request</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>debugServiceCalloutResponse</Name>
+        <Value/>
+        <Ref>ServiceCallout.response</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-RedirectLoginApplicationImplicit">
+    <DisplayName>AM-RedirectLoginApplicationImplicit</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Remove/>
+    <Set>
+        <Headers>
+            <!--<Header name="Location">{oidc_loginUrl}?sessionid={messageid}&amp;scope={oidc_scope}</Header>-->
+            <Header name="Location">https://{azure-host}/{azure-authorize}?p={azure-signuporsignin}&amp;client_id=f82f0527-eb3d-4453-9564-654ff37b813e&amp;nonce=defaultNonce&amp;redirect_uri=https%3A%2F%2Fwec-nonprod-dev.apigee.net%2Foidc%2Fv1%2Fauth&amp;scope=id_token&amp;response_type={app_response_type}&amp;prompt=login&amp;state={client_id}&amp;response_mode=form_post</Header>
+            <Header name="Access-Control-Allow-Origin">*</Header>
+            <Header name="Access-Control-Allow-Methods">POST, GET, OPTIONS</Header>
+            <Header name="Access-Control-Allow-Headers">Accept, Content-Type, connection, content-length, Authorization, Location</Header>
+            <Header name="Access-Control-Allow-Credentials">true</Header>
+        </Headers>
+        <StatusCode>302</StatusCode>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

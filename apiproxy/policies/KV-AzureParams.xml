@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="KV-AzureParams" mapIdentifier="oidc-v1">
+    <DisplayName>KV-AzureParams</DisplayName>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>300</ExpiryTimeInSecs>
+    <Get assignTo="apigee-host" index="1">
+        <Key>
+            <Parameter>apigee-host</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="azure-host" index="1">
+        <Key>
+            <Parameter>azure-host</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="azure-client-id" index="1">
+        <Key>
+            <Parameter>azure-client-id</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="azure-client-secret" index="1">
+        <Key>
+            <Parameter>azure-client-secret</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="azure-edge-callback" index="1">
+        <Key>
+            <Parameter>azure-edge-callback</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="azure-configuration" index="1">
+        <Key>
+            <Parameter>azure-configuration</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="azure-token" index="1">
+        <Key>
+            <Parameter>azure-token</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="azure-authorize" index="1">
+        <Key>
+            <Parameter>azure-authorize</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="azure-signuporsignin" index="1">
+        <Key>
+            <Parameter>azure-signuporsignin</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="azure-passwordreset" index="1">
+        <Key>
+            <Parameter>azure-passwordreset</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

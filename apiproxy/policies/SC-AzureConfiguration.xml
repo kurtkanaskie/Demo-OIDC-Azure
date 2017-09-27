@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="false" name="SC-AzureConfiguration">
+    <DisplayName>SC-AzureConfiguration</DisplayName>
+    <Properties/>
+    <Request clearPayload="true" variable="myRequest">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <Set>
+            <Verb>GET</Verb>
+        </Set>
+    </Request>
+    <Response>configurationResponse</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <!--
+        <URL>https://login.microsoftonline.com/kurtkanaskie.onmicrosoft.com/v2/.well-known/openid-configuration?p=B2C_1_SignUpOrSignIn</URL>
+        -->
+        <URL>https://{azure-host}/{azure-configuration}</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>KV-AzureParams</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows>
+        <Flow name="auth - code">
+            <Description>Redirect URL for wec-dev-app</Description>
+            <Request>
+                <Step>
+                    <Name>AM-Debug</Name>
+                </Step>
+                <Step>
+                    <Name>EV-AzureCallbackParamsCode</Name>
+                </Step>
+                <Step>
+                    <Name>LC-AzureSession</Name>
+                </Step>
+                <Step>
+                    <Name>EV-AuthSession</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetAppCallbackCode</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>OA-GenerateAuthCode</Name>
+                </Step>
+                <Step>
+                    <Condition>(app_error != "access_denied")</Condition>
+                    <Name>AM-RedirectAppCallback</Name>
+                </Step>
+                <Step>
+                    <Condition>(app_error == "access_denied")</Condition>
+                    <Name>AM-RedirectAppCallbackError</Name>
+                </Step>
+            </Response>
+            <!-- This should be /auth -->
+            <Condition>(request.verb = "GET") and (proxy.pathsuffix MatchesPath "/auth")</Condition>
+        </Flow>
+        <Flow name="auth - implicit">
+            <Description>Redirect URL for wec-dev-app</Description>
+            <Request>
+                <Step>
+                    <Name>EV-AzureCallbackParamsImplicit</Name>
+                </Step>
+                <Step>
+                    <Name>VA-AzureVariable</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetAppCallbackImplicit</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SetExternalFlagForOAuth</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>OA-GenerateAccessTokenImplicit</Name>
+                </Step>
+            </Response>
+            <!-- This should be /auth -->
+            <Condition>(request.verb = "POST") and (proxy.pathsuffix MatchesPath "/auth")</Condition>
+        </Flow>
+        <Flow name="authorize">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>VA-QueryParam</Name>
+                </Step>
+                <Step>
+                    <Name>EV-AuthorizeParams</Name>
+                </Step>
+                <Step>
+                    <Name>AM-AuthSession</Name>
+                </Step>
+                <Step>
+                    <Name>PC-AzureSession</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Condition>(app_response_type == "code"</Condition>
+                    <Name>AM-RedirectLoginApplicationCode</Name>
+                </Step>
+                <Step>
+                    <Condition>(app_response_type == "id_token"</Condition>
+                    <Name>AM-RedirectLoginApplicationImplicit</Name>
+                </Step>
+            </Response>
+            <Condition>(request.verb = "GET") and (proxy.pathsuffix MatchesPath "/authorize")</Condition>
+        </Flow>
+        <Flow name="token">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AM-Debug</Name>
+                </Step>
+                <Step>
+                    <Name>VA-FormParam</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Condition>(request.formparam.grant_type == "authorization_code")</Condition>
+                    <Name>SC-AzureToken</Name>
+                </Step>
+                <Step>
+                    <Condition>(request.formparam.grant_type == "refresh_token")</Condition>
+                    <Name>SC-AzureRefreshToken</Name>
+                </Step>
+                <Step>
+                    <Name>AM-Debug</Name>
+                </Step>
+                <Step>
+                    <Name>OA-GenerateAccessTokenCode</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/token") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="openid-configuration">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-OpenIDConfiguration</Name>
+                </Step>
+                <Step>
+                    <Name>SC-AzureConfiguration</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/openid-configuration") and (request.verb = "GET")</Condition>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/oidc/v1</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

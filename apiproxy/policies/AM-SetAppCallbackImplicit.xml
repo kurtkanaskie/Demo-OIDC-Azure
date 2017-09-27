@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetAppCallbackImplicit">
+    <DisplayName>AM-SetAppCallbackImplicit</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>app_redirect_uri</Name>
+        <Value/>
+        <Ref>verifyapikey.VA-AzureVariable.redirection_uris</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>app_response_type</Name>
+        <Value>token</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

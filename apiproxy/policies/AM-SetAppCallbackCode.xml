@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetAppCallbackCode">
+    <DisplayName>AM-SetAppCallbackCode</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>app_redirect_uri</Name>
+        <Value/>
+        <Ref>app_redirect_uri</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>app_response_type</Name>
+        <Value>code</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

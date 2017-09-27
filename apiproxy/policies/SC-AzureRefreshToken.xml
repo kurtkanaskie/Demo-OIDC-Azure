@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="SC-AzureRefreshToken">
+    <DisplayName>SC-AzureRefreshToken</DisplayName>
+    <Request clearPayload="true">
+        <Add>
+            <Headers>
+                <Header name="Content-Type">application/x-www-form-urlencoded</Header>
+            </Headers>
+            <FormParams>
+                <!-- web-dev-edge ID: f82f0527-eb3d-4453-9564-654ff37b813e secret: C1gs$rE#;kc-0ET+ -->
+                <FormParam name="client_id">{azure-client-id}</FormParam>
+                <FormParam name="client_secret">{azure-client-secret}</FormParam>
+                <FormParam name="grant_type">{request.formparam.grant_type}</FormParam>
+                <FormParam name="scope">{request.formparam.scope} f82f0527-eb3d-4453-9564-654ff37b813e</FormParam>
+                <FormParam name="refresh_token">{request.formparam.refresh_token}</FormParam>
+            </FormParams>
+            <QueryParams>
+                <QueryParam name="p">{azure-signuporsignin}</QueryParam>
+            </QueryParams>
+        </Add>
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    </Request>
+    <Response>response</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://{azure-host}/{azure-token}</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

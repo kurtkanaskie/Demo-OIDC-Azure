@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-RedirectLoginApplicationCode">
+    <DisplayName>AM-RedirectLoginApplicationCode</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Remove/>
+    <Set>
+        <Headers>
+            <!--<Header name="Location">{oidc_loginUrl}?sessionid={messageid}&amp;scope={oidc_scope}</Header>-->
+            <!--
+            <Header name="Location">https://login.microsoftonline.com/kurtkanaskie.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_SignUpOrSignIn&amp;client_id=f82f0527-eb3d-4453-9564-654ff37b813e&amp;nonce=defaultNonce&amp;redirect_uri=https%3A%2F%2Fwec-nonprod-dev.apigee.net%2Foidc%2Fv1%2Fauth&amp;scope=f82f0527-eb3d-4453-9564-654ff37b813e%20offline_access&amp;response_type={app_response_type}&amp;prompt=login&amp;state={messageid}</Header>
+            <Header name="Location">https://{azure-host}/{azure-authorize}?p={azure-signuporsignin}&amp;client_id={azure-client-id}&amp;nonce=defaultNonce&amp;redirect_uri={azure-edge-callback}&amp;scope={app_scope}&amp;response_type={app_response_type}&amp;prompt=login&amp;state={messageid}</Header>
+            -->
+            <Header name="Location">https://{azure-host}/{azure-authorize}?p={app_policy}&amp;client_id={azure-client-id}&amp;nonce=defaultNonce&amp;redirect_uri={azure-edge-callback}&amp;scope={app_scope} f82f0527-eb3d-4453-9564-654ff37b813e&amp;response_type={app_response_type}&amp;prompt=login&amp;state={messageid}</Header>
+            <Header name="Access-Control-Allow-Origin">*</Header>
+            <Header name="Access-Control-Allow-Methods">POST, GET, OPTIONS</Header>
+            <Header name="Access-Control-Allow-Headers">Accept, Content-Type, connection, content-length, Authorization, Location</Header>
+            <Header name="Access-Control-Allow-Credentials">true</Header>
+        </Headers>
+        <StatusCode>302</StatusCode>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <!--
+    https://login.microsoftonline.com/kurtkanaskie.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_SignUpOrSignIn&client_id=180f48e2-690a-4552-932a-22faf2b7e808&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fwec-nonprod-dev.apigee.net%2Fazure-b2c%2Fapp&scope=openid&response_type=code&prompt=login&state=the-client-id-here
+    -->
+</AssignMessage>
