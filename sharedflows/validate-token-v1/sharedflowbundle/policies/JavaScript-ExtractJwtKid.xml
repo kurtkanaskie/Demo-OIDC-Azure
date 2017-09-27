@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="JavaScript-ExtractJwtKid">
+    <DisplayName>JavaScript ExtractJwtKid</DisplayName>
+    <Properties>
+        <Property name="jwtvar">jwtAccessToken</Property>
+    </Properties>
+    <IncludeURL>jsc://jwtDecode.js</IncludeURL>
+    <ResourceURL>jsc://extractJwtKid.js</ResourceURL>
+</Javascript>

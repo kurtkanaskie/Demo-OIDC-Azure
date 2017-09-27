@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage-GetMsCerts">
+    <DisplayName>AssignMessage GetMsCerts</DisplayName>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignVariable>
+        <Name>msCerts.content</Name>
+        <Ref>cached.ms.certs</Ref>
+    </AssignVariable>
+</AssignMessage>

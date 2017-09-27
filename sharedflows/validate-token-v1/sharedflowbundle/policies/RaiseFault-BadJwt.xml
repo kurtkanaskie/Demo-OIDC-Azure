@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RaiseFault-BadJwt">
+    <DisplayName>RaiseFault BadJwt</DisplayName>
+    <Properties/>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <FaultResponse>
+        <Set>
+            <Payload contentType="application/json" variablePrefix="%" variableSuffix="#"><![CDATA[{
+  "errors" : [
+    {
+        "code" : "401.01",
+        "message" : "Cannot authenticate the request.",
+        "reason" : "JWT is either missing or not valid."
+    }
+  ]
+}
+]]></Payload>
+            <StatusCode>401</StatusCode>
+            <ReasonPhrase>Unauthorized</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

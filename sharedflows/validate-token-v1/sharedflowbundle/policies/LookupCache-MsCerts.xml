@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LookupCache async="false" continueOnError="false" enabled="true" name="LookupCache-MsCerts">
+    <DisplayName>LookupCache MsCerts</DisplayName>
+    <CacheResource>CacheMsCerts</CacheResource>
+    <AssignTo>cached.ms.certs</AssignTo>
+    <!-- name of flow variable -->
+    <Scope>Application</Scope>
+    <CacheKey>
+        <Prefix>msCerts</Prefix>
+        <KeyFragment>1</KeyFragment>
+    </CacheKey>
+</LookupCache>

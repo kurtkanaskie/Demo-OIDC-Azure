@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlow name="default">
+    <!-- extract JWT access token from the Header -->
+    <Step>
+        <Name>ExtractVariables-HeaderJwt</Name>
+    </Step>
+    <Step>
+        <Name>RaiseFault-BadJwt</Name>
+        <Condition>jwtAccessToken = null</Condition>
+    </Step>
+    <!-- check the cache for the cert retrieved from login.microsoftonline.com -->
+    <Step>
+        <Name>LookupCache-MsCerts</Name>
+    </Step>
+    <Step>
+        <Name>ServiceCallout-GetMsCerts</Name>
+        <Condition>cached.ms.cert = null</Condition>
+    </Step>
+    <Step>
+        <Name>PopulateCache-MsCerts</Name>
+        <Condition>cached.ms.cert = null</Condition>
+    </Step>
+    <Step>
+        <Name>AssignMessage-GetMsCerts</Name>
+        <Condition>cached.ms.cert != null</Condition>
+    </Step>
+    <Step>
+        <Name>JavaScript-ExtractMsCerts</Name>
+    </Step>
+    <!-- this step determines which cert to use during the verification. -->
+    <Step>
+        <Name>JavaScript-ExtractJwtKid</Name>
+    </Step>
+    <Step>
+        <Name>RaiseFault-BadJwt</Name>
+        <Condition>context.var.containing.modulus = null</Condition>
+    </Step>
+    <Step>
+        <Name>JavaCallout-ParseVerifyRS256openid</Name>
+    </Step>
+    <Step>
+        <Name>RaiseFault-JwtExpired</Name>
+        <Condition>jwt_isExpired = true</Condition>
+    </Step>
+    <Step>
+        <Name>RaiseFault-BadJwt</Name>
+        <Condition>jwt_clienterror != null || jwt_valid = false</Condition>
+    </Step>
+    <Step>
+        <Name>AssignMessage-PublishError</Name>
+        <Condition>jwt_error != null</Condition>
+    </Step>
+</SharedFlow>

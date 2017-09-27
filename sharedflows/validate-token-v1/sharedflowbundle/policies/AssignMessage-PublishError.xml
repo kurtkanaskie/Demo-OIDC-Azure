@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessage-PublishError">
+    <DisplayName>AssignMessage PublishError</DisplayName>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Set>
+        <Payload contentType="application/json" variablePrefix="%" variableSuffix="#"><![CDATA[{
+  "error" : [
+  {
+    "code" : "500",
+    "message" : "%jwt_error#",
+    "reason" : "%jwt_reason#"
+  }
+  ]
+}
+]]></Payload>
+        <StatusCode>500</StatusCode>
+        <ReasonPhrase>Server Error</ReasonPhrase>
+    </Set>
+</AssignMessage>

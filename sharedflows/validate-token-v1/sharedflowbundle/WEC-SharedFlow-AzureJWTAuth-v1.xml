@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="1" name="WEC-SharedFlow-AzureJWTAuth-v1">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1500919443679</CreatedAt>
+    <CreatedBy>dianhai.du@accenture.com</CreatedBy>
+    <Description>Share flow for Azure JWT Authentication</Description>
+    <DisplayName>WEC-SharedFlow-AzureJWTAuth-v1</DisplayName>
+    <LastModifiedAt>1500919443679</LastModifiedAt>
+    <LastModifiedBy>dianhai.du@accenture.com</LastModifiedBy>
+    <Policies>
+        <Policy>AssignMessage-GetMsCerts</Policy>
+        <Policy>AssignMessage-PublishError</Policy>
+        <Policy>ExtractVariables-HeaderJwt</Policy>
+        <Policy>ExtractVariables-HeaderJwtToken</Policy>
+        <Policy>JavaCallout-ParseVerifyRS256ms</Policy>
+        <Policy>JavaCallout-ParseVerifyRS256openid</Policy>
+        <Policy>JavaScript-Extract-MsCerts</Policy>
+        <Policy>JavaScript-ExtractJwtKid</Policy>
+        <Policy>JavaScript-ExtractMsCerts</Policy>
+        <Policy>LookupCache-MsCerts</Policy>
+        <Policy>PopulateCache-MsCerts</Policy>
+        <Policy>RaiseFault-BadJwt</Policy>
+        <Policy>RaiseFault-JwtExpired</Policy>
+        <Policy>ServiceCallout-GetMsCerts</Policy>
+    </Policies>
+    <Resources>
+        <Resource>java://apigee-edge-callout-jwt-signed-1.0.5.jar</Resource>
+        <Resource>java://commons-lang3-3.4.jar</Resource>
+        <Resource>java://guava-18.0.jar</Resource>
+        <Resource>java://json-smart-1.3.jar</Resource>
+        <Resource>java://nimbus-jose-jwt-3.10.jar</Resource>
+        <Resource>jsc://extractJwtKid.js</Resource>
+        <Resource>jsc://extractMsCerts.js</Resource>
+        <Resource>jsc://jwtDecode.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>

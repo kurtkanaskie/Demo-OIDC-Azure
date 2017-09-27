@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PopulateCache async="false" continueOnError="false" enabled="true" name="PopulateCache-MsCerts">
+    <DisplayName>PopulateCache MsCerts</DisplayName>
+    <CacheResource>CacheMsCerts</CacheResource>
+    <Source>msCerts.content</Source>
+    <Scope>Application</Scope>
+    <CacheKey>
+        <Prefix>msCerts</Prefix>
+        <KeyFragment>1</KeyFragment>
+    </CacheKey>
+    <ExpirySettings>
+        <TimeoutInSec>14400</TimeoutInSec>
+    </ExpirySettings>
+</PopulateCache>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<JavaCallout async="false" continueOnError="false" enabled="true" name="JavaCallout-ParseVerifyRS256ms">
+    <DisplayName>JavaCallout ParseVerifyRS256ms</DisplayName>
+    <Properties>
+        <Property name="algorithm">RS256</Property>
+        <Property name="jwt">{jwtAccessToken}</Property>
+        <!-- public-key used only for algorithm = RS256 -->
+        <Property name="certificate">{ms.certificate}</Property>
+        <!-- claims to verify -->
+        <Property name="claim_iss">https://sts.windows.net/737e9a95-252b-42ec-ad49-6b3a5b231c98/</Property>
+        <Property name="claim_ver">1.0</Property>
+        <Property name="claim_aud">83ec6a8b-31c3-4c7f-8d9a-8e4a6a8baed0</Property>
+        <Property name="claim_sub">5VXHtXIxa_mleJ-dOrRXPcNJmEiXKDxTKd87tB84tc0</Property>
+    </Properties>
+    <ClassName>com.apigee.callout.jwtsigned.JwtParserCallout</ClassName>
+    <ResourceURL>java://apigee-edge-callout-jwt-signed-1.0.5.jar</ResourceURL>
+</JavaCallout>

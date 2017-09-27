@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<JavaCallout async="false" continueOnError="false" enabled="true" name="JavaCallout-ParseVerifyRS256openid">
+    <DisplayName>JavaCallout ParseVerifyRS256openid</DisplayName>
+    <Properties>
+        <Property name="algorithm">RS256</Property>
+        <Property name="jwt">{jwtAccessToken}</Property>
+        <!-- public-key used only for algorithm = RS256 -->
+        <Property name="modulus">{context.var.containing.modulus}</Property>
+        <Property name="exponent">{context.var.containing.exponent}</Property>
+        <!-- claims to verify -->
+        <Property name="claim_iss">https://login.microsoftonline.com/XXXXXXXX-08a5-4b3c-8ea8-663efc2c94db/v2.0/</Property>
+        <Property name="claim_ver">1.0</Property>
+        <Property name="claim_aud">XXXXXXXX-b2d9-4ec7-8a89-c8853d59a4ac</Property>
+        <Property name="claim_sub">XXXXXXXX-ea51-48ef-8345-0a75efed5fa3</Property>
+        <Property name="tfp">B2C_1_SignupOrSignin</Property>
+    </Properties>
+    <ClassName>com.apigee.callout.jwtsigned.JwtParserCallout</ClassName>
+    <ResourceURL>java://apigee-edge-callout-jwt-signed-1.0.5.jar</ResourceURL>
+</JavaCallout>
